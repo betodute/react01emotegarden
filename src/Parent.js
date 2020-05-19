@@ -10,11 +10,33 @@ class Parent extends React.Component {
     emotes: []
   }
 
+  // Event Handler Functions
+
+  changeFirstName = event => {
+    this.setState({
+      firstName: event.target.value
+    })
+  }
+
+  changeLastName = event => {
+    this.setState({
+      lastName: event.target.value
+    })
+  }
+
+
+
   render() {
     return (
       <div>
-        <Form/>
-        <Display/>
+        <Form
+          formData={this.state}
+          changeFirstName={this.changeFirstName}
+          changeLastName={this.changeLastName}
+        />
+        <Display
+          formData={this.state}
+        />
       </div>
     )
   }
